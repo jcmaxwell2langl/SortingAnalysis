@@ -30,7 +30,7 @@ int main(){
 	duration<double> time_span = duration_cast<duration<double> > (t2 - t1);
 	std::cout << "It took me " << time_span.count() << " seconds.";
 	std::cout << std::endl;
-	printArray(arr, 5000);
+	//printArray(arr, 5000);
 	return 0;
 
 }
