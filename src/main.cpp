@@ -9,6 +9,7 @@
 #include <string>
 #include <stdio.h>
 #include "insertion.h"
+#include "MergeSort.h"
 #include <ctime>
 #include <chrono>
 using namespace std;
@@ -18,7 +19,7 @@ void runTime(int *arr,int size){
 	duration<double> time_span;
 //change algorithm
 	high_resolution_clock::time_point t1 = high_resolution_clock::now();
-	insertionSort(arr, size);
+	MergeSort(arr, size);
 	high_resolution_clock::time_point t2 = high_resolution_clock::now();
 
 	time_span = duration_cast<duration<double> > (t2 - t1);
@@ -30,14 +31,21 @@ void runTime(int *arr,int size){
 int main(){
 	ifstream file;
 	//change path
-	string a="/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/Project2/SortingAnalysis/src/ascending/50000.txt";
-	string r="/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/Project2/SortingAnalysis/src/version 1/50000.txt";
-	string d="/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/Project2/SortingAnalysis/src/descending/50000d.txt";
+	string a="/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/Project2/SortingAnalysis/src/ascending/5000.txt";
+	string r="/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/Project2/SortingAnalysis/src/version 1/5000.txt";
+	string d="/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/Project2/SortingAnalysis/src/descending/5000.txt";
 
 	//change size and path
-	int size = 50000;
+	int size = 5000;
 	//file.open(a);
-	file.open(d);
+	char input;
+	cout<<"a, r or d file?(type a,r,d)"<<endl;
+	cin>>input;
+	switch(input){
+	case 'a':file.open(a);break;
+	case 'r':file.open(r);break;
+	case'd':file.open(d);break;
+	}
 	//file.open(d);
 
 
