@@ -13,26 +13,47 @@
 #include <chrono>
 using namespace std;
 using namespace std::chrono;
+
+void runTime(int *arr,int size){
+	duration<double> time_span;
+
+	high_resolution_clock::time_point t1 = high_resolution_clock::now();
+	insertionSort(arr, size);
+	high_resolution_clock::time_point t2 = high_resolution_clock::now();
+
+	time_span = duration_cast<duration<double> > (t2 - t1);
+
+	printArray(arr,size);
+	std::cout << "It took me " << time_span.count() << " seconds.";
+		std::cout << std::endl;
+}
 int main(){
 	ifstream file;
-	file.open("/Project2/SortingAnalysis/src/ascending/5000.txt");
-	int *arr= new int [5000];
+	//change path
+	string a="/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/Project2/SortingAnalysis/src/ascending/50000.txt";
+	string r="/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/Project2/SortingAnalysis/src/version 1/50000.txt";
+	string d="/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/Project2/SortingAnalysis/src/descending/50000d.txt";
+
+	//change size and path
+	int size = 50000;
+	//file.open(a);
+	file.open(d);
+	//file.open(d);
+
+
+	int *arr= new int[size];
 	string str;
 	for (int i =0; file>>str; i++){
-
-		arr[i]= stoi(str, nullptr, 10);
+		arr[i]= stoi(str);
 	}
-
 	file.close();
-	high_resolution_clock::time_point t1 = high_resolution_clock::now();
-	insertionSort(arr, 5000);
-	high_resolution_clock::time_point t2 = high_resolution_clock::now();
-	duration<double> time_span = duration_cast<duration<double> > (t2 - t1);
-	std::cout << "It took me " << time_span.count() << " seconds.";
-	std::cout << std::endl;
-	//printArray(arr, 5000);
+	runTime(arr, size);
+	delete []arr;
+	arr=0;
 	return 0;
-
 }
+
+
+
 
 
