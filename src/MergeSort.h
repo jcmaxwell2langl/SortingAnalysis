@@ -6,13 +6,13 @@
 #include <string>
 #include <chrono>
 using namespace std;
-/*
+
 void PrintArray(int *array, int n) {
 	for (int i = 0; i < n; ++i)
 		std::cout << array[i] << " " << std::flush;
 	std::cout << std::endl;
 }
-*/
+
 void Merger(int arr[], int lo, int  mi, int hi) {
 	int *temp = new int[hi - lo + 1];//temporary merger array
 	int i = lo, j = mi + 1;//i is for left-hand,j is for right-hand
