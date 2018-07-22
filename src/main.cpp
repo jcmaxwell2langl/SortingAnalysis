@@ -16,7 +16,7 @@ using namespace std::chrono;
 
 void runTime(int *arr,int size){
 	duration<double> time_span;
-
+//change algorithm
 	high_resolution_clock::time_point t1 = high_resolution_clock::now();
 	insertionSort(arr, size);
 	high_resolution_clock::time_point t2 = high_resolution_clock::now();
