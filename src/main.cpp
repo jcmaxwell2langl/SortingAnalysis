@@ -15,12 +15,12 @@ using namespace std;
 using namespace std::chrono;
 int main(){
 	ifstream file;
-	file.open("/Users/louise0/Documents/College/Junior Summer/DataStructure/workspace/SortingAnalysis/src/version 1/5000.txt");
-	int arr[5000];
+	file.open("/Project2/SortingAnalysis/src/ascending/5000.txt");
+	int *arr= new int [5000];
 	string str;
-	for (int i =0; i<5000; i++){
-		file>>str;
-		arr[i]= stoi(str);
+	for (int i =0; file>>str; i++){
+
+		arr[i]= stoi(str, nullptr, 10);
 	}
 
 	file.close();
